@@ -20,13 +20,16 @@ public class ChatRoom {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long chatRoomId;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false)
     private Member notiMemberId;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false)
     private Member appMemberId;
 
     @CreatedDate
     private LocalDateTime createdAt;
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false)
     private Match matchId;
 
     @Builder
